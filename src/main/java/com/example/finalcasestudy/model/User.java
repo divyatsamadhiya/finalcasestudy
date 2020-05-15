@@ -129,10 +129,6 @@ public class User {
 	public void setMobileNumber(Integer mobileNumber) {
 		this.MobileNumber = mobileNumber;
 	}
-	
-	
-=======
-public class User {
 
 
 }
