@@ -1,5 +1,6 @@
 package com.example.finalcasestudy.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -130,4 +131,8 @@ public class User {
 	}
 	
 	
+=======
+public class User {
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.finalcasestudy.repo;
 
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,5 +11,8 @@ import com.example.finalcasestudy.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
 //	List<User> loginByEmailPassword(String emailId, String password);
+
+public class UserRepository {
+
 
 }

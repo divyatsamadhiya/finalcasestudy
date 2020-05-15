@@ -1,5 +1,6 @@
 package com.example.finalcasestudy.api;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,8 @@ public class UserAPI {
 //		
 //		return new ResponseEntity<>(productFacade.findByProductName(name), HttpStatus.OK);
 //	}
+
+public class UserAPI {
+
 
 }
