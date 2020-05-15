@@ -12,7 +12,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 //	List<User> loginByEmailPassword(String emailId, String password);
 
-public class UserRepository {
-
-
 }
