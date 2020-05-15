@@ -1,15 +1,7 @@
-package com.example.finalcasestudy.model;
+package com.example.finalcasestudy.api;
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="users")
-public class User {
+public class UserDTO {
 	
-	@Id
 	private Integer userID;
 	
 	private String fullName;
@@ -35,7 +27,7 @@ public class User {
 	private Integer MobileNumber;
 	
 	public Integer getUserID() {
-		return this.userID;
+		return userID;
 	}
 
 	public void setUserID(Integer userID) {
@@ -43,7 +35,7 @@ public class User {
 	}
 
 	public String getFullName() {
-		return this.fullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
@@ -51,7 +43,7 @@ public class User {
 	}
 
 	public String getEmailId() {
-		return this.emailId;
+		return emailId;
 	}
 
 	public void setEmailId(String emailId) {
@@ -59,7 +51,7 @@ public class User {
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public void setPassword(String password) {
@@ -67,7 +59,7 @@ public class User {
 	}
 
 	public String getGender() {
-		return this.gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
@@ -75,7 +67,7 @@ public class User {
 	}
 
 	public Integer getDateOfBirth() {
-		return this.dateOfBirth;
+		return dateOfBirth;
 	}
 
 	public void setDateOfBirth(Integer dateOfBirth) {
@@ -83,7 +75,7 @@ public class User {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
@@ -91,7 +83,7 @@ public class User {
 	}
 
 	public String getCity() {
-		return this.city;
+		return city;
 	}
 
 	public void setCity(String city) {
@@ -99,7 +91,7 @@ public class User {
 	}
 
 	public String getState() {
-		return this.state;
+		return state;
 	}
 
 	public void setState(String state) {
@@ -107,7 +99,7 @@ public class User {
 	}
 
 	public String getCountry() {
-		return this.country;
+		return country;
 	}
 
 	public void setCountry(String country) {
@@ -115,7 +107,7 @@ public class User {
 	}
 
 	public Integer getPincode() {
-		return this.pincode;
+		return pincode;
 	}
 
 	public void setPincode(Integer pincode) {
@@ -123,7 +115,7 @@ public class User {
 	}
 
 	public Integer getMobileNumber() {
-		return this.MobileNumber;
+		return MobileNumber;
 	}
 
 	public void setMobileNumber(Integer mobileNumber) {
@@ -131,8 +123,5 @@ public class User {
 	}
 	
 	
-=======
-public class User {
-
-
 }
+
