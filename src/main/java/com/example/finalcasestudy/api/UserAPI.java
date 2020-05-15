@@ -38,8 +38,5 @@ public class UserAPI {
 //		
 //		return new ResponseEntity<>(productFacade.findByProductName(name), HttpStatus.OK);
 //	}
-
-public class UserAPI {
-
-
 }
+
