@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import com.example.finalcasestudy.model.User;
 import com.example.finalcasestudy.repo.UserRepository;
 
@@ -20,6 +22,16 @@ public class UserService {
 	public User save(User user) {
 		return userRepository.save(user);
 	}
+	
+	public List<User> findByUserName(String fullName){
+		return userRepository.findByUserNameIgnoreCase(fullName);
+		}
+	
+	
+	public List<User> findByPassword(String password){
+		return userRepository.findByUserNameIgnoreCase(password);
+		}
+	
 	
 //	public List<User> login(String emailId, String password){
 //		return userRepository.loginByEmailPassword(emailId,password);

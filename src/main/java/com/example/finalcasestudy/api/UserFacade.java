@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
 import com.example.finalcasestudy.model.User;
 
 @Configuration
@@ -28,6 +29,15 @@ public class UserFacade {
 	public List<UserDTO> findAll(){
 		return convertToUserDto(userService.findAll());
 	}
+	
+	public List<UserDTO> findByUserName(String fullName){
+		return convertToUserDto(userService.findByUserName(fullName));
+		}
+	
+public List<UserDTO> findByPassword(String password){
+	return convertToUserDto(userService.findByPassword(password));
+		}
+
 	
 	public void save(UserDTO userDTO) {
 		userService.save(convertToEntity(userDTO));

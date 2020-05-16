@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
 public class UserAPI {
 	
@@ -28,6 +29,20 @@ public class UserAPI {
 	@GetMapping("/users")
 	public ResponseEntity<List<UserDTO>> findAll(){
 		return new ResponseEntity<>(userFacade.findAll(), HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/products/find/{name}")
+	public ResponseEntity<List<UserDTO>> findByName(@PathVariable("name")String name){
+
+		return new ResponseEntity<>(userFacade.findByUserName(name), HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/products/find/{password}")
+	public ResponseEntity<List<UserDTO>> findByUserPassword(@PathVariable("password")String password){
+
+		return new ResponseEntity<>(userFacade.findByPassword(password), HttpStatus.OK);
 	}
 	
 //	@GetMapping("/login")
