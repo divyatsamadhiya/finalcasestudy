@@ -33,6 +33,14 @@ public class UserFacade {
 		userService.save(convertToEntity(userDTO));
 	}
 	
+	public void delete(int userId) {
+		userService.delete(userId);
+		}
+	
+	//public void updateUser(int userId) {
+		//userService.update(userId);
+	//}
+	
 //	public List<UserDTO> login(String emailId, String password){
 //		return convertToUserDto(userService.login(emailId,password));
 //		}

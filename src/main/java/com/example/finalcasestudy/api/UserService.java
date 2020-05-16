@@ -21,6 +21,13 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
+	public void delete(int userId) {
+		userRepository.deleteById(userId);
+		}
+	
+	//public void update(int userId) {
+		//userRepository.updateuser(userId);
+	//}
 //	public List<User> login(String emailId, String password){
 //		return userRepository.loginByEmailPassword(emailId,password);
 //	}
