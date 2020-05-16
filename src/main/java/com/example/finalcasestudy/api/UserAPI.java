@@ -3,18 +3,23 @@ package com.example.finalcasestudy.api;
 
 import java.util.List;
 
+import javax.validation.constraints.Null;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
+
+
 @RestController
 public class UserAPI {
+	
 	
 	@Autowired
 	private UserFacade userFacade;
@@ -29,6 +34,7 @@ public class UserAPI {
 	public ResponseEntity<List<UserDTO>> findAll(){
 		return new ResponseEntity<>(userFacade.findAll(), HttpStatus.OK);
 	}
+	
 	
 //	@GetMapping("/login")
 //	public ResponseEntity<List<UserDTO>> UserLogin(@PathVariable("emailId") String emailId,@PathVariable("password")String password){

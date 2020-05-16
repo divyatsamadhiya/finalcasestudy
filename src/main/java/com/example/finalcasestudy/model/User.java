@@ -4,10 +4,12 @@ package com.example.finalcasestudy.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="users")
 public class User {
+	
 	
 	@Id
 	private Integer userID;
