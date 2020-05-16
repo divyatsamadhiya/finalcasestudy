@@ -29,6 +29,10 @@ public void save(FlightDTO flightDTO) {
 flightService.save(convertToEntity(flightDTO));
 }
 
+public List<FlightDTO> findAllByFromCityToCitySeats(String fromCity, String toCity, Integer seats) {
+	return convertToProductDto(flightService.findAllByFromCityToCitySeats(fromCity, toCity, seats));
+}
+
 public void delete(int flightId) {
 flightService.delete(flightId);
 }

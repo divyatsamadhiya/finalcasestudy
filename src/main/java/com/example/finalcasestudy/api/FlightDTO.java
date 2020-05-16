@@ -2,11 +2,13 @@ package com.example.finalcasestudy.api;
 
 public class FlightDTO {
 	
-	private Integer flightId;
+private Integer id;
 	
-	private String filghtName;
+	private Integer flightNumber;
 	
-	private String operatingAirlines;
+	private String flightName;
+	
+	private String airline;
 	
 	private String fromCity;
 	
@@ -16,34 +18,42 @@ public class FlightDTO {
 	
 	private Double arrivalTime;
 	
-	private Double costperTicket;
+	private Double ticketPrice;
 	
-	private Double totalDuration;
+	private Double duration;
 	
-	private Integer numofSeats;
+	private Integer seats;
 
-	public Integer getFlightId() {
-		return flightId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setFlightId(Integer flightId) {
-		this.flightId = flightId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getFilghtName() {
-		return filghtName;
+	public Integer getFlightNumber() {
+		return flightNumber;
 	}
 
-	public void setFilghtName(String filghtName) {
-		this.filghtName = filghtName;
+	public void setFlightNumber(Integer flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 
-	public String getOperatingAirlines() {
-		return operatingAirlines;
+	public String getFlightName() {
+		return flightName;
 	}
 
-	public void setOperatingAirlines(String operatingAirlines) {
-		this.operatingAirlines = operatingAirlines;
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+	}
+
+	public String getAirline() {
+		return airline;
+	}
+
+	public void setAirline(String airline) {
+		this.airline = airline;
 	}
 
 	public String getFromCity() {
@@ -78,31 +88,29 @@ public class FlightDTO {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public Double getCostperTicket() {
-		return costperTicket;
+	public Double getTicketPrice() {
+		return ticketPrice;
 	}
 
-	public void setCostperTicket(Double costperTicket) {
-		this.costperTicket = costperTicket;
+	public void setTicketPrice(Double ticketPrice) {
+		this.ticketPrice = ticketPrice;
 	}
 
-	public Double getTotalDuration() {
-		return totalDuration;
+	public Double getDuration() {
+		return duration;
 	}
 
-	public void setTotalDuration(Double totalDuration) {
-		this.totalDuration = totalDuration;
+	public void setDuration(Double duration) {
+		this.duration = duration;
 	}
 
-	public Integer getNumofSeats() {
-		return numofSeats;
+	public Integer getSeats() {
+		return seats;
 	}
 
-	public void setNumofSeats(Integer numofSeats) {
-		this.numofSeats = numofSeats;
+	public void setSeats(Integer seats) {
+		this.seats = seats;
 	}
-	
-	
 
 	
 

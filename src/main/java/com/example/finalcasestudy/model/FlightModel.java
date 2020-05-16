@@ -5,111 +5,124 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "flightmanagementtable")
+@Table(name = "Flights")
 
 public class FlightModel {
 	
+
 	@Id
-	private Integer flightId;
-	
-	private String filghtName;
-	
-	private String operatingAirlines;
-	
-	private String fromCity;
-	
-	private String toCity;
-	
-	private Double departureTime;
-	
-	private Double arrivalTime;
-	
-	private Double costperTicket;
-	
-	private Double totalDuration;
-	
-	private Integer numofSeats;
+		private Integer id;
+		
+		private Integer flightNumber;
+		
+	    private String flightName;
+		
+		private String airline;
+		
+		private String fromCity;
+		
+		private String toCity;
+		
+		private Double departureTime;
+		
+		private Double arrivalTime;
+		
+		private Double ticketPrice;
+		
+		private Double duration;
+		
+		private Integer seats;
 
-	public Integer getFlightId() {
-		return flightId;
-	}
+		
 
-	public void setFlightId(Integer flightId) {
-		this.flightId = flightId;
-	}
+		public Integer getId() {
+			return id;
+		}
 
-	public String getFilghtName() {
-		return filghtName;
-	}
+		public void setId(Integer id) {
+			this.id = id;
+		}
 
-	public void setFilghtName(String filghtName) {
-		this.filghtName = filghtName;
-	}
+		public Integer getFlightNumber() {
+			return flightNumber;
+		}
 
-	public String getOperatingAirlines() {
-		return operatingAirlines;
-	}
+		public void setFlightNumber(Integer flightNumber) {
+			this.flightNumber = flightNumber;
+		}
 
-	public void setOperatingAirlines(String operatingAirlines) {
-		this.operatingAirlines = operatingAirlines;
-	}
+		public String getFlightName() {
+			return flightName;
+		}
 
-	public String getFromCity() {
-		return fromCity;
-	}
+		public void setFlightName(String flightName) {
+			this.flightName = flightName;
+		}
 
-	public void setFromCity(String fromCity) {
-		this.fromCity = fromCity;
-	}
+		public String getAirline() {
+			return airline;
+		}
 
-	public String getToCity() {
-		return toCity;
-	}
+		public void setAirline(String airline) {
+			this.airline = airline;
+		}
 
-	public void setToCity(String toCity) {
-		this.toCity = toCity;
-	}
+		public String getFromCity() {
+			return fromCity;
+		}
 
-	public Double getDepartureTime() {
-		return departureTime;
-	}
+		public void setFromCity(String fromCity) {
+			this.fromCity = fromCity;
+		}
 
-	public void setDepartureTime(Double departureTime) {
-		this.departureTime = departureTime;
-	}
+		public String getToCity() {
+			return toCity;
+		}
 
-	public Double getArrivalTime() {
-		return arrivalTime;
-	}
+		public void setToCity(String toCity) {
+			this.toCity = toCity;
+		}
 
-	public void setArrivalTime(Double arrivalTime) {
-		this.arrivalTime = arrivalTime;
-	}
+		public Double getDepartureTime() {
+			return departureTime;
+		}
 
-	public Double getCostperTicket() {
-		return costperTicket;
-	}
+		public void setDepartureTime(Double departureTime) {
+			this.departureTime = departureTime;
+		}
 
-	public void setCostperTicket(Double costperTicket) {
-		this.costperTicket = costperTicket;
-	}
+		public Double getArrivalTime() {
+			return arrivalTime;
+		}
 
-	public Double getTotalDuration() {
-		return totalDuration;
-	}
+		public void setArrivalTime(Double arrivalTime) {
+			this.arrivalTime = arrivalTime;
+		}
 
-	public void setTotalDuration(Double totalDuration) {
-		this.totalDuration = totalDuration;
-	}
+		public Double getTicketPrice() {
+			return ticketPrice;
+		}
 
-	public Integer getNumofSeats() {
-		return numofSeats;
-	}
+		public void setTicketPrice(Double ticketPrice) {
+			this.ticketPrice = ticketPrice;
+		}
 
-	public void setNumofSeats(Integer numofSeats) {
-		this.numofSeats = numofSeats;
-	}
+		public Double getDuration() {
+			return duration;
+		}
 
+		public void setDuration(Double duration) {
+			this.duration = duration;
+		}
+
+		public Integer getSeats() {
+			return seats;
+		}
+
+		public void setSeats(Integer seats) {
+			this.seats = seats;
+		}
+		
 	
 	
 
