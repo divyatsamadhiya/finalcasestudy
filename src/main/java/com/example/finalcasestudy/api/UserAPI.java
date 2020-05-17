@@ -2,6 +2,7 @@ package com.example.finalcasestudy.api;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +13,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.finalcasestudy.repo.UserRepository;
 
 
 @RestController
@@ -31,6 +35,15 @@ public class UserAPI {
 		logger.info("Processing save request");
 		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
 	}
+	
+	@PutMapping("/users/update/{userID}")
+	public ResponseEntity<UserDTO> updateUsers(@RequestBody UserDTO userDTO, @PathVariable("userID") Integer userID) {
+		if(userFacade.findById(userID).size()==1) {
+			userFacade.update(userDTO,userID);
+		}
+		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
+	}
+	
 	
 	@GetMapping("/users")
 	public ResponseEntity<List<UserDTO>> findAll(){

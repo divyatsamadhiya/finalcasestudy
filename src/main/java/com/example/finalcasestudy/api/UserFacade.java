@@ -26,6 +26,10 @@ public class UserFacade {
 		userService.save(convertToEntity(userDTO));
 	}
 	
+	public void update(UserDTO userDTO, Integer userID) {
+		userService.updateUser(convertToEntity(userDTO),userID);
+	}
+	
 	public List<UserDTO> findByUserName(String name){
 		return convertToUserDto(userService.findByUserName(name));
 	}
@@ -35,7 +39,7 @@ public class UserFacade {
 	}
 	
 	public List<UserDTO> findById(int userID){
-		return convertToUserDto( userService.findById(userID));
+		return convertToUserDto(userService.findById(userID));
 	}
 
 	

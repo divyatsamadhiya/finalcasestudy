@@ -1,6 +1,7 @@
 package com.example.finalcasestudy.api;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class UserService {
 	}
 	
 	public User save(User user) {
+		return userRepository.save(user);
+	}
+	
+	public User updateUser(User user, Integer userID) {
 		return userRepository.save(user);
 	}
 	

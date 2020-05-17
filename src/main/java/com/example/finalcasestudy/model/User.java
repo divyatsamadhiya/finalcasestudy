@@ -37,7 +37,7 @@ public class User implements Serializable  {
 	
 	private Integer pincode;
 	
-	private Integer MobileNumber;
+	private Long MobileNumber;
 	
 	public Integer getUserID() {
 		return this.userID;
@@ -127,11 +127,11 @@ public class User implements Serializable  {
 		this.pincode = pincode;
 	}
 
-	public Integer getMobileNumber() {
+	public Long getMobileNumber() {
 		return this.MobileNumber;
 	}
 
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.MobileNumber = mobileNumber;
 	}
 

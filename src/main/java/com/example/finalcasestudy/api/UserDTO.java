@@ -25,7 +25,7 @@ public class UserDTO {
 	
 	private Integer pincode;
 	
-	private Integer MobileNumber;
+	private Long MobileNumber;
 	
 	public Integer getUserID() {
 		return userID;
@@ -115,11 +115,11 @@ public class UserDTO {
 		this.pincode = pincode;
 	}
 
-	public Integer getMobileNumber() {
+	public Long getMobileNumber() {
 		return MobileNumber;
 	}
 
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.MobileNumber = mobileNumber;
 	}
 	
