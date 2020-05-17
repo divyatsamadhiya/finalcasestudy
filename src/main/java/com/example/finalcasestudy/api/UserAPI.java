@@ -32,11 +32,11 @@ public class UserAPI {
 	}
 	
 	
-	@GetMapping("/products/find/{name}")
-	public ResponseEntity<List<UserDTO>> findByName(@PathVariable("name")String name){
+	//@GetMapping("/products/find/{name}")
+//	public ResponseEntity<List<UserDTO>> findByName(@PathVariable("name")String name){
 
-		return new ResponseEntity<>(userFacade.findByUserName(name), HttpStatus.OK);
-	}
+	//	return new ResponseEntity<>(userFacade.findByUserName(name), HttpStatus.OK);
+	//}
 	
 	
 	@GetMapping("/products/find/{password}")

@@ -12,7 +12,7 @@ import com.example.finalcasestudy.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
-	List<User> findByUserNameIgnoreCase(String fullName);
+	//List<User> findByUserNameIgnoreCase(String fullName);
 	
 	List<User> findByPasswordIgnoreCase(String password);
 	

@@ -30,9 +30,9 @@ public class UserFacade {
 		return convertToUserDto(userService.findAll());
 	}
 	
-	public List<UserDTO> findByUserName(String fullName){
-		return convertToUserDto(userService.findByUserName(fullName));
-		}
+	//public List<UserDTO> findByUserName(String name){
+		//return convertToUserDto(userService.findByUserName(name));
+		//}
 	
 public List<UserDTO> findByPassword(String password){
 	return convertToUserDto(userService.findByPassword(password));

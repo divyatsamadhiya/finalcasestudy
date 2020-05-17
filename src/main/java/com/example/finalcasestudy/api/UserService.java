@@ -23,13 +23,13 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
-	public List<User> findByUserName(String fullName){
-		return userRepository.findByUserNameIgnoreCase(fullName);
-		}
+//	public List<User> findByUserName(String name){
+	//	return userRepository.findByUserNameIgnoreCase(name);
+		//}
 	
 	
 	public List<User> findByPassword(String password){
-		return userRepository.findByUserNameIgnoreCase(password);
+		return userRepository.findByPasswordIgnoreCase(password);
 		}
 	
 	
