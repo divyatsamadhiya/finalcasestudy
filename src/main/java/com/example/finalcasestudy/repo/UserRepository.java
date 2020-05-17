@@ -12,8 +12,9 @@ import com.example.finalcasestudy.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	
-	List<User> deleteById(int UserId);
+	List<User> findById(int userID);
+	List<User> deleteById(int UserID);
+	//List<User> updateUser(int UserID);
 //	List<User> loginByEmailPassword(String emailId, String password);
 
 }

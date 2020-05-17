@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
+
 import com.example.finalcasestudy.model.User;
 
 @Configuration
@@ -33,8 +35,13 @@ public class UserFacade {
 		userService.save(convertToEntity(userDTO));
 	}
 	
-	public void delete(int userId) {
-		userService.delete(userId);
+	public List<UserDTO> findById(int userID){
+		return convertToUserDto( userService.findById(userID));
+		}
+
+	
+	public void delete(int userID) {
+		userService.delete(userID);
 		}
 	
 	//public void updateUser(int userId) {

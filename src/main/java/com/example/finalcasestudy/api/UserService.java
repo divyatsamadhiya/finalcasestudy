@@ -1,9 +1,12 @@
 package com.example.finalcasestudy.api;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import com.example.finalcasestudy.model.User;
 import com.example.finalcasestudy.repo.UserRepository;
 
@@ -21,12 +24,18 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
-	public void delete(int userId) {
-		userRepository.deleteById(userId);
+	public List<User> findById(int userID){
+		return userRepository.findById(userID);
 		}
 	
+	public void delete(int userID) {
+		userRepository.deleteById(userID);
+		}
+
+	
+	
 	//public void update(int userId) {
-		//userRepository.updateuser(userId);
+		//userRepository.updateUser(userId);
 	//}
 //	public List<User> login(String emailId, String password){
 //		return userRepository.loginByEmailPassword(emailId,password);
