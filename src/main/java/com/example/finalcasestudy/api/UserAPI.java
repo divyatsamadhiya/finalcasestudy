@@ -39,7 +39,7 @@ public class UserAPI {
 	//}
 	
 	
-	@GetMapping("/products/find/{password}")
+	@GetMapping("/users/find/{password}")
 	public ResponseEntity<List<UserDTO>> findByUserPassword(@PathVariable("password")String password){
 
 		return new ResponseEntity<>(userFacade.findByPassword(password), HttpStatus.OK);
