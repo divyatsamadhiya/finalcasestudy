@@ -1,11 +1,10 @@
 package com.example.finalcasestudy.api;
 
 
-//import java.util.HashMap;
 import java.util.List;
 
-//import javax.validation.Valid;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,20 +12,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//import com.example.finalcasestudy.model.User;
-//import com.example.finalcasestudy.repo.UserRepository;
-
-
 @RestController
 public class UserAPI {
+	
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private UserFacade userFacade;
@@ -34,43 +28,49 @@ public class UserAPI {
 	@PostMapping("/usersregistration")
 	public ResponseEntity<UserDTO> save(@RequestBody UserDTO userDTO){
 		userFacade.save(userDTO);
+		logger.info("Processing save request");
 		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
 	}
 	
 	@GetMapping("/users")
 	public ResponseEntity<List<UserDTO>> findAll(){
+		logger.info("Processing findAll request");
 		return new ResponseEntity<>(userFacade.findAll(), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/users/{userID}")
-
+	@GetMapping("/users/findByName/{name}")
+	public ResponseEntity<List<UserDTO>> findByName(@PathVariable("name")String name){
+		logger.info("Processing findByName request");
+		return new ResponseEntity<>(userFacade.findByUserName(name), HttpStatus.OK);
+	}
+	
+	@GetMapping("/users/findByPassword/{password}")
+	public ResponseEntity<List<UserDTO>> findByUserPassword(@PathVariable("password")String password){
+		logger.info("Processing findByPassword request");
+		return new ResponseEntity<>(userFacade.findByPassword(password), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/users/delete/{userID}")
 	public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("userID")int userID){
-	userFacade.delete(userID);
-
-	return new ResponseEntity<>(new StringResponse("Deleted Order "+userID), HttpStatus.OK);
+		userFacade.delete(userID);
+		logger.info("Processing delete request");
+		return new ResponseEntity<>(new StringResponse("Deleted User "+userID), HttpStatus.OK);
 
 	}
 	
-	@GetMapping("/users/find/{userID}")
+	@GetMapping("/users/findById/{userID}")
 	public ResponseEntity<List<UserDTO>> findById(@PathVariable("userID") int userID){
-
-	return new ResponseEntity<>(userFacade.findById(userID), HttpStatus.OK);
+		logger.info("Processing findById request");
+		return new ResponseEntity<>(userFacade.findById(userID), HttpStatus.OK);
 	}
-
 	
 	//@RequestMapping(value="/users/{userId}", method =RequestMethod.PUT )
 	//@PutMapping("/users/updateuser/{userID}")
-	//public ResponseEntity<UserDTO> updateuser(@PathVariable("userID")int userId, @Valid User user){
-		//List<User>users =UserService.findById(userID);
-		//user.setAddress(user.getAddress());
-		//user.setCity(user.getCity());
-		//user.setCountry(user.getCountry());
-		//user.setMobileNumber(user.getMobileNumber());
-		//user.setPincode(user.getPincode());
-		//user.setState(user.getState());
-	   //return new ResponseEntity<>(userFacade.updateUser(userID),HttpStatus.OK);
+	//public ResponseEntity<List<UserDTO>> updateuser(@PathVariable("userID")int userId, @RequestBody UserDTO userDTO){
+	//	userDTO =userFacade.findById(userId);
+	  // return new ResponseEntity<>(userFacade.save(userDTO),HttpStatus.OK);
 		
-	//}
+//	}
 	
 	//@RequestMapping(value="/updateUserInfo", method=RequestMethod.POST)
 	//public ResponseEntity profileInfo(

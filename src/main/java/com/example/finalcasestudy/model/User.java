@@ -1,26 +1,31 @@
 package com.example.finalcasestudy.model;
 
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable  {
 	
 	@Id
 	private Integer userID;
+
+	@NotEmpty
+	private String userName;
 	
-	private String fullName;
-	
+	@NotEmpty
 	private String emailId;
 	
+	@NotEmpty
 	private String password;
 	
 	private String gender;
 	
-	private Integer dateOfBirth;
+	private String dateOfBirth;
 	
 	private String address;
 	
@@ -42,12 +47,12 @@ public class User {
 		this.userID = userID;
 	}
 
-	public String getFullName() {
-		return this.fullName;
+	public String getUserName() {
+		return this.userName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmailId() {
@@ -74,11 +79,11 @@ public class User {
 		this.gender = gender;
 	}
 
-	public Integer getDateOfBirth() {
+	public String getDateOfBirth() {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(Integer dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -130,5 +135,6 @@ public class User {
 		this.MobileNumber = mobileNumber;
 	}
 
+	
 
 }
