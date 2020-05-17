@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,48 +59,20 @@ public class UserAPI {
 
 	}
 	
+	@PutMapping("/users/update/{userID}")
+	public ResponseEntity<UserDTO> updateUsers(@RequestBody UserDTO userDTO, @PathVariable("userID") Integer userID) {
+		if(userFacade.findById(userID).size()==1) {
+			userFacade.update(userDTO,userID);
+		}
+		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
+	}
+	
 	@GetMapping("/users/findById/{userID}")
 	public ResponseEntity<List<UserDTO>> findById(@PathVariable("userID") int userID){
 		logger.info("Processing findById request");
 		return new ResponseEntity<>(userFacade.findById(userID), HttpStatus.OK);
 	}
 	
-	//@RequestMapping(value="/users/{userId}", method =RequestMethod.PUT )
-	//@PutMapping("/users/updateuser/{userID}")
-	//public ResponseEntity<List<UserDTO>> updateuser(@PathVariable("userID")int userId, @RequestBody UserDTO userDTO){
-	//	userDTO =userFacade.findById(userId);
-	  // return new ResponseEntity<>(userFacade.save(userDTO),HttpStatus.OK);
-		
-//	}
-	
-	//@RequestMapping(value="/updateUserInfo", method=RequestMethod.POST)
-	//public ResponseEntity profileInfo(
-	  //          @RequestBody HashMap<String, Object> mapper
-	    //    ) throws Exception{
-
-	    //int userId = (Integer) mapper.get("userID");
-	    //String emailId = (String) mapper.get("emailId");
-	    //String gender = (String) mapper.get("gender");
-	    //int dateofBirth = (Integer) mapper.get("dateofBirth");
-	    //String fullName = (String) mapper.get("fullName");
-	    
-	    //User currentUser = UserService.findById(userID);
-	    //if(currentUser == null) {
-	      //  throw new Exception ("User not found");
-	    //}
-	    
-	   // currentUser.setAddress(currentUser.getAddress());
-		//currentUser.setCity(currentUser.getCity());
-		//currentUser.setCountry(currentUser.getCountry());
-		//currentUser.setMobileNumber(currentUser.getMobileNumber());
-		//currentUser.setPincode(currentUser.getPincode());
-		//currentUser.setState(currentUser.getState());
-
-
-	    //UserService.save(currentUser);
-
-	    //return new ResponseEntity("Update Success", HttpStatus.OK);
-//	}
 	
 	
 	

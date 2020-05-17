@@ -21,6 +21,10 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
+	public User updateUser(User user, Integer userID) {
+		return userRepository.save(user);
+	}
+	
 	public List<User> findByUserName(String name){
 		return userRepository.findByUserNameIgnoreCase(name);
 	}
