@@ -36,7 +36,7 @@
 	<scm>
   		<connection>scm:git:git@github.com:divyatsamadhiya/finalcasestudy.git</connection>
   		<developerConnection>scm:git:git@github.com:divyatsamadhiya/finalcasestudy.git</developerConnection>
-  		<url>git@github.com:divyatsamadhiya/finalcasestudy.git</url>
+  		<url>https://github.com/divyatsamadhiya/finalcasestudy.git</url>
   		<tag>HEAD</tag>
 	</scm>
 
