@@ -5,19 +5,12 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
 import com.example.finalcasestudy.model.User;
 
-@Configuration
+@Component
 public class UserFacade {
-	
-	@Bean
-	   public ModelMapper modelMapper() {
-	      ModelMapper modelMapper = new ModelMapper();
-	      return modelMapper;
-	   }
 	
 	@Autowired
 	private UserService userService;
@@ -31,6 +24,26 @@ public class UserFacade {
 	
 	public void save(UserDTO userDTO) {
 		userService.save(convertToEntity(userDTO));
+	}
+	public void update(UserDTO userDTO, Integer userID) {
+		userService.updateUser(convertToEntity(userDTO),userID);
+	}
+	
+	public List<UserDTO> findByUserName(String name){
+		return convertToUserDto(userService.findByUserName(name));
+	}
+	
+	public List<UserDTO> findByPassword(String password){
+		return convertToUserDto(userService.findByPassword(password));
+	}
+	
+	public List<UserDTO> findById(int userID){
+		return convertToUserDto( userService.findById(userID));
+	}
+
+	
+	public void delete(int userID) {
+		userService.delete(userID);
 	}
 	
 //	public List<UserDTO> login(String emailId, String password){

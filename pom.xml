@@ -36,10 +36,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-logging</artifactId>
-</dependency>
-		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -50,10 +46,33 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.5</version>
 		</dependency>
+		<dependency>
+    		<groupId>org.mockito</groupId>
+    		<artifactId>mockito-junit-jupiter</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -65,7 +84,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		</dependencies>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -77,3 +97,4 @@
 	</build>
 
 </project>
+
