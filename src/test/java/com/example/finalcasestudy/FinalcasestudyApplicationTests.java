@@ -39,7 +39,7 @@ class FinalcasestudyApplicationTests {
 
 	List<UserDTO> users = new ArrayList<>();
 	users.add(new UserDTO());
-//	users.add(new UserDTO());
+	users.add(new UserDTO());
 //	users.add(new UserDTO());
 //	users.add(new UserDTO());
 	
@@ -52,7 +52,7 @@ class FinalcasestudyApplicationTests {
 	List<UserDTO> result = userapi.findAll().getBody();
 
 	// then
-	assertThat(result.size()).isEqualTo(1);
+	assertThat(result.size()).isEqualTo(2);
 
 	// assertThat(result.get(0).getFirstName())
 	// .isEqualTo(employee1.getFirstName());
