@@ -47,9 +47,9 @@ public ResponseEntity<List<FlightDTO>> findAllByFromCityToCitySeats(@PathVariabl
 	return new ResponseEntity<>(flightFacade.findAllByFromCityToCitySeats(fromCity, toCity, seats), HttpStatus.OK);
 }
 
-@DeleteMapping("/flights/delete/{flightId}")
-public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("flightId")int flightId){
-flightFacade.delete(flightId);
-return new ResponseEntity<>(new StringResponse("Deleted flightId= "+flightId), HttpStatus.OK);
+@DeleteMapping("/flights/delete/{id}")
+public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("id")int id){
+flightFacade.delete(id);
+return new ResponseEntity<>(new StringResponse("Deleted flightId= "+id), HttpStatus.OK);
 }
 }
