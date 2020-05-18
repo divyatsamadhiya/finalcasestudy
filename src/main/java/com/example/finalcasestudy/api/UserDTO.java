@@ -1,10 +1,11 @@
 package com.example.finalcasestudy.api;
 
+
 public class UserDTO {
 	
 	private Integer userID;
 	
-	private String fullName;
+	private String userName;
 	
 	private String emailId;
 	
@@ -12,7 +13,7 @@ public class UserDTO {
 	
 	private String gender;
 	
-	private Integer dateOfBirth;
+	private String dateOfBirth;
 	
 	private String address;
 	
@@ -24,7 +25,7 @@ public class UserDTO {
 	
 	private Integer pincode;
 	
-	private Integer MobileNumber;
+	private Long MobileNumber;
 	
 	public Integer getUserID() {
 		return userID;
@@ -34,12 +35,12 @@ public class UserDTO {
 		this.userID = userID;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmailId() {
@@ -66,11 +67,11 @@ public class UserDTO {
 		this.gender = gender;
 	}
 
-	public Integer getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Integer dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -114,11 +115,11 @@ public class UserDTO {
 		this.pincode = pincode;
 	}
 
-	public Integer getMobileNumber() {
+	public Long getMobileNumber() {
 		return MobileNumber;
 	}
 
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.MobileNumber = mobileNumber;
 	}
 	
