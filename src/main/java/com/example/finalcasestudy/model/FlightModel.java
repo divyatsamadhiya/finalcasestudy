@@ -1,7 +1,12 @@
 package com.example.finalcasestudy.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +16,7 @@ public class FlightModel {
 	
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 		private Integer id;
 		
 		private Integer flightNumber;
@@ -32,8 +38,7 @@ public class FlightModel {
 		private Double duration;
 		
 		private Integer seats;
-
-		
+				
 
 		public Integer getId() {
 			return id;
@@ -122,8 +127,37 @@ public class FlightModel {
 		public void setSeats(Integer seats) {
 			this.seats = seats;
 		}
+
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("FlightModel [id=");
+			builder.append(id);
+			builder.append(", flightNumber=");
+			builder.append(flightNumber);
+			builder.append(", flightName=");
+			builder.append(flightName);
+			builder.append(", airline=");
+			builder.append(airline);
+			builder.append(", fromCity=");
+			builder.append(fromCity);
+			builder.append(", toCity=");
+			builder.append(toCity);
+			builder.append(", departureTime=");
+			builder.append(departureTime);
+			builder.append(", arrivalTime=");
+			builder.append(arrivalTime);
+			builder.append(", ticketPrice=");
+			builder.append(ticketPrice);
+			builder.append(", duration=");
+			builder.append(duration);
+			builder.append(", seats=");
+			builder.append(seats);
+			builder.append("]");
+			return builder.toString();
+		}
 		
-	
+		
 	
 
 }
