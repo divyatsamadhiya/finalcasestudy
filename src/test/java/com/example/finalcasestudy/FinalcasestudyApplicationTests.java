@@ -11,21 +11,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.finalcasestudy.api.UserAPI;
-import com.example.finalcasestudy.api.UserDTO;
-import com.example.finalcasestudy.api.UserFacade;
 
 @SpringBootTest
 class FinalcasestudyApplicationTests {
 	
 	
-	@InjectMocks
-	UserAPI userapi;
-
-	@Mock
-	UserFacade productFacade;
-
-
+	
 	@Test
 	void contextLoads() {
 	}
@@ -37,29 +28,5 @@ class FinalcasestudyApplicationTests {
 	// given
 
 
-	List<UserDTO> users = new ArrayList<>();
-//	users.add(new UserDTO());
-//	users.add(new UserDTO());
-//	users.add(new UserDTO());
-//	users.add(new UserDTO());
-//	
-
-	when(productFacade.findAll()).thenReturn(users);
-
-
-
-	// when
-	List<UserDTO> result = userapi.findAll().getBody();
-
-	// then
-	assertThat(result.size()).isEqualTo(0);
-
-	// assertThat(result.get(0).getFirstName())
-	// .isEqualTo(employee1.getFirstName());
-	//
-	// assertThat(result.getEmployeeList().get(1).getFirstName())
-	// .isEqualTo(employee2.getFirstName());
 	}
-
-	}
-
+}
