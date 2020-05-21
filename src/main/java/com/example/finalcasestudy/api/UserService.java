@@ -22,7 +22,7 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
-	public User updateUser(User user, Integer userID) {
+	public User updateUser(User user, int id) {
 		return userRepository.save(user);
 	}
 	
@@ -34,16 +34,13 @@ public class UserService {
 		return userRepository.findByPasswordIgnoreCase(password);
 	}
 	
-	public List<User> findById(int userID){
-		return userRepository.findById(userID);
+	public List<User> findById(int id){
+		return userRepository.findById(id);
 	}
 	
-	public void delete(int userID) {
-		userRepository.deleteById(userID);
+	public void delete(int id) {
+		userRepository.deleteById(id);
 	}
 	
-//	public List<User> login(String emailId, String password){
-//		return userRepository.loginByEmailPassword(emailId,password);
-//	}
 
 }

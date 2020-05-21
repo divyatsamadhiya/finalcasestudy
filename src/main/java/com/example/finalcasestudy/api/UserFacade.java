@@ -26,8 +26,8 @@ public class UserFacade {
 		userService.save(convertToEntity(userDTO));
 	}
 	
-	public void update(UserDTO userDTO, Integer userID) {
-		userService.updateUser(convertToEntity(userDTO),userID);
+	public void update(UserDTO userDTO, int id) {
+		userService.updateUser(convertToEntity(userDTO),id);
 	}
 	
 	public List<UserDTO> findByUserName(String name){
@@ -38,18 +38,15 @@ public class UserFacade {
 		return convertToUserDto(userService.findByPassword(password));
 	}
 	
-	public List<UserDTO> findById(int userID){
-		return convertToUserDto(userService.findById(userID));
+	public List<UserDTO> findById(int id){
+		return convertToUserDto(userService.findById(id));
 	}
 
 	
-	public void delete(int userID) {
-		userService.delete(userID);
+	public void delete(int id) {
+		userService.delete(id);
 	}
 	
-//	public List<UserDTO> login(String emailId, String password){
-//		return convertToUserDto(userService.login(emailId,password));
-//		}
 	
 	private List<UserDTO> convertToUserDto(List<User> users) {
 		return modelMapper.map(users,new TypeToken<List<UserDTO>>(){}.getType());

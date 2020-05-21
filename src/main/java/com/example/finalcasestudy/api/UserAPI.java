@@ -23,10 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.finalcasestudy.repo.UserRepository;
 
-
-
-
-
 @RestController
 public class UserAPI {
 	
@@ -44,10 +40,10 @@ public class UserAPI {
 		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
 	}
 	
-	@PutMapping("/users/update/{userID}")
-	public ResponseEntity<UserDTO> updateUsers(@RequestBody UserDTO userDTO, @PathVariable("userID") Integer userID) {
-		if(userFacade.findById(userID).size()==1) {
-			userFacade.update(userDTO,userID);
+	@PutMapping("/users/update/{id}")
+	public ResponseEntity<UserDTO> updateUsers(@RequestBody UserDTO userDTO, @PathVariable("id") int id) {
+		if(userFacade.findById(id).size()==1) {
+			userFacade.update(userDTO,id);
 		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
 	}
@@ -72,28 +68,18 @@ public class UserAPI {
 		return new ResponseEntity<>(userFacade.findByPassword(password), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/users/delete/{userID}")
-	public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("userID")int userID){
-		userFacade.delete(userID);
+	@DeleteMapping("/users/delete/{id}")
+	public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("id")int id){
+		userFacade.delete(id);
 		logger.info("Processing delete request");
-		return new ResponseEntity<>(new StringResponse("Deleted User "+userID), HttpStatus.OK);
-
+		return new ResponseEntity<>(new StringResponse("Deleted User "+id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/users/findById/{userID}")
-	public ResponseEntity<List<UserDTO>> findById(@PathVariable("userID") int userID){
+	@GetMapping("/users/findById/{id}")
+	public ResponseEntity<List<UserDTO>> findById(@PathVariable("id") int id){
 		logger.info("Processing findById request");
-		return new ResponseEntity<>(userFacade.findById(userID), HttpStatus.OK);
+		return new ResponseEntity<>(userFacade.findById(id), HttpStatus.OK);
 	}
 
-	
-//	@GetMapping("/login")
-//	public ResponseEntity<List<UserDTO>> UserLogin(@PathVariable("emailId") String emailId,@PathVariable("password")String password){
-//		if(emailId == findByEmail(email) && password==findByPassword(password)) {
-//			
-//		}
-//		
-//		return new ResponseEntity<>(productFacade.findByProductName(name), HttpStatus.OK);
-//	}
 }
 
