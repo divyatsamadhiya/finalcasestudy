@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
-				.usersByUsernameQuery("select user_name,password, enabled from user where user_name=?")
+				.usersByUsernameQuery("select user_name,password,enabled from user where user_name=?")
 				.authoritiesByUsernameQuery("select user_name, role from user_roles where user_name=?");
 	}
  
@@ -50,4 +50,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	http.exceptionHandling().accessDeniedPage("/403");
 	}
 }
-

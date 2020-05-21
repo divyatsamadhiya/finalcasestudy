@@ -11,7 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
+import com.example.finalcasestudy.api.FlightAPI;
+import com.example.finalcasestudy.api.FlightDTO;
+import com.example.finalcasestudy.api.FlightFacade;
+import com.example.finalcasestudy.api.StringResponse;
 import com.example.finalcasestudy.api.UserAPI;
 import com.example.finalcasestudy.api.UserDTO;
 import com.example.finalcasestudy.api.UserFacade;
@@ -26,7 +29,14 @@ class FinalcasestudyApplicationTests {
 	UserAPI userapi;
 
 	@Mock
-	UserFacade productFacade;
+	UserFacade userFacade;
+
+	
+	@InjectMocks
+	FlightAPI flightapi;
+
+	@Mock
+	FlightFacade flightFacade;
 
 
 
@@ -51,7 +61,7 @@ class FinalcasestudyApplicationTests {
 //	users.add(new UserDTO());
 	
 
-	when(productFacade.findAll()).thenReturn(users);
+	when(userFacade.findAll()).thenReturn(users);
 
 
 
@@ -67,8 +77,23 @@ class FinalcasestudyApplicationTests {
 	// assertThat(result.getEmployeeList().get(1).getFirstName())
 	// .isEqualTo(employee2.getFirstName());
 	}
+	
+	
+	
+	@Test
+	public void testFindByFlightNumber()
+	{
+	
+	    List<FlightDTO> flights=new ArrayList<>();
+	    flights.add(new FlightDTO());
+	    when(flightFacade.findByFlightNumber(12345)).thenReturn(flights);
+	    
+		// when
+		List<FlightDTO> result = flightapi.findByFlightNumber(12345 ).getBody();
 
+		// then
+		assertThat(result.size()).isEqualTo(1);
 	}
-
-
+	
+}
 

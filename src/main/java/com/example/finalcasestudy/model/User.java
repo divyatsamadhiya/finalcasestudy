@@ -2,6 +2,8 @@ package com.example.finalcasestudy.model;
 
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +34,7 @@ public class User implements Serializable  {
 	
 	private String gender;
 	
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	private String address;
 	
@@ -86,11 +88,11 @@ public class User implements Serializable  {
 		this.gender = gender;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
