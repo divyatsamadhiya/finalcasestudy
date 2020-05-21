@@ -3,7 +3,7 @@ package com.example.finalcasestudy.api;
 
 public class UserDTO {
 	
-	private Integer userID;
+	private Integer id;
 	
 	private String userName;
 	
@@ -25,14 +25,14 @@ public class UserDTO {
 	
 	private Integer pincode;
 	
-	private Integer MobileNumber;
+	private Long MobileNumber;
 	
-	public Integer getUserID() {
-		return userID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUserID(Integer userID) {
-		this.userID = userID;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
@@ -115,11 +115,11 @@ public class UserDTO {
 		this.pincode = pincode;
 	}
 
-	public Integer getMobileNumber() {
+	public Long getMobileNumber() {
 		return MobileNumber;
 	}
 
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.MobileNumber = mobileNumber;
 	}
 	

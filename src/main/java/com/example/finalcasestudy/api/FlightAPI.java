@@ -2,9 +2,6 @@ package com.example.finalcasestudy.api;
 
 import java.util.List;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.finalcasestudy.model.FlightModel;
-import com.example.finalcasestudy.model.User;
-
-
-
 
 @RestController
 public class FlightAPI {
@@ -46,6 +37,12 @@ flightFacade.save(flightDTO);
 return ResponseEntity.status(HttpStatus.CREATED).body(flightDTO);
 }
 
+@GetMapping("/flights/findByFlightNumber/{number}")
+public ResponseEntity<List<FlightDTO>> findByFlightNumber(@PathVariable("number")Integer number){
+	logger.info("Processing findByFlightNumber request");
+	return new ResponseEntity<>(flightFacade.findByFlightNumber(number), HttpStatus.OK);
+}
+
 
 @GetMapping("/flights/available/{fromCity}/{toCity}/{seats}")
 public ResponseEntity<List<FlightDTO>> findAllByFromCityToCitySeats(@PathVariable("fromCity")String fromCity, @PathVariable("toCity")String toCity, @PathVariable("seats")Integer seats) {
@@ -59,11 +56,9 @@ flightFacade.delete(flightId);
 return new ResponseEntity<>(new StringResponse("Deleted flightId= "+flightId), HttpStatus.OK);
 }
 
-@OneToOne
-@JoinColumn(name = "Flight_id", insertable = false, updatable = false)
-private FlightModel filghtmodel;
-
-@OneToOne
-@JoinColumn(name = "customer_id", insertable = false, updatable = false)
-private User customer;
+@GetMapping("/flights/findById/{id}")
+public ResponseEntity<List<FlightDTO>> findById(@PathVariable("id") int id){
+	logger.info("Processing findById request");
+	return new ResponseEntity<>(flightFacade.findById(id), HttpStatus.OK);
+}
 }

@@ -18,12 +18,14 @@ import com.example.finalcasestudy.api.UserFacade;
 @SpringBootTest
 class FinalcasestudyApplicationTests {
 	
+//	private UserFacade userFacade;
+	
 	
 	@InjectMocks
 	UserAPI userapi;
 
 	@Mock
-	UserFacade productFacade;
+	UserFacade userFacade;
 
 
 	@Test
@@ -44,7 +46,7 @@ class FinalcasestudyApplicationTests {
 	users.add(new UserDTO());
 	
 
-	when(productFacade.findAll()).thenReturn(users);
+	when(userFacade.findAll()).thenReturn(users);
 
 
 
@@ -59,6 +61,19 @@ class FinalcasestudyApplicationTests {
 	//
 	// assertThat(result.getEmployeeList().get(1).getFirstName())
 	// .isEqualTo(employee2.getFirstName());
+	}
+	
+	@Test
+	public void testfindbyName()
+	{
+		//given
+		List<UserDTO> users = new ArrayList<>();
+		users.add(new UserDTO());
+		when(userFacade.findByUserName("suganda")).thenReturn(users);
+		//when
+		List<UserDTO> result =userapi.findByName("suganda").getBody();
+		//then
+		assertThat(result.size()).isEqualTo(1);
 	}
 
 	}

@@ -1,13 +1,13 @@
 package com.example.finalcasestudy.api;
 
-import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.finalcasestudy.model.FlightModel;
+
+import java.util.List;
 
 
 
@@ -29,12 +29,20 @@ public void save(FlightDTO flightDTO) {
 flightService.save(convertToEntity(flightDTO));
 }
 
+public List<FlightDTO> findByFlightNumber(Integer number){
+	return convertToProductDto(flightService.findByFlightNumber(number));
+}
+
 public List<FlightDTO> findAllByFromCityToCitySeats(String fromCity, String toCity, Integer seats) {
 	return convertToProductDto(flightService.findAllByFromCityToCitySeats(fromCity, toCity, seats));
 }
 
 public void delete(int flightId) {
 flightService.delete(flightId);
+}
+
+public List<FlightDTO> findById(int id){
+	return convertToProductDto(flightService.findById(id));
 }
 
 
