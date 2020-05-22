@@ -141,7 +141,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-                <finalName>final-docker-jenkins</finalName>
+                <finalName>docker-image</finalName>
                 </configuration>
 			</plugin>
 			
