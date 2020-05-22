@@ -18,8 +18,8 @@ MAINTAINER parameshrdgowda97@gmail.com
 EXPOSE 8083
 
 #default command
-CMD java -jar /home/final-docker-jenkins.war
+CMD java -jar /home/docker-image.war
 
 
 
-COPY --from=maven_build /tmp/target/final-docker-jenkins.war /home/final-docker-jenkins.war
+COPY --from=maven_build /tmp/target/docker-image.war /home/docker-image.war
