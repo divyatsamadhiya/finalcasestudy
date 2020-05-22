@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.finalcasestudy.model.BookingModel;
-import com.example.finalcasestudy.model.User;
+
 
 @Component
 public class BookingFacade {
@@ -23,10 +23,7 @@ public class BookingFacade {
 		bookingService.bookTicket(convertToEntity(bookingDTO));
 	}
 	
-//	public List<BookingDTO> findById(int id){
-//		return convertToBookingDto(bookingService.findById(id));
-//	}
-	
+
 	private List<BookingDTO> convertToBookingDto(List<BookingModel> booking) {
 		return modelMapper.map(booking,new TypeToken<List<BookingDTO>>(){}.getType());
 	}
