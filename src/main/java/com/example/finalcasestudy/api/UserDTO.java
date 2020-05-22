@@ -1,9 +1,10 @@
 package com.example.finalcasestudy.api;
 
+import java.util.Date;
 
 public class UserDTO {
 	
-	private Integer userID;
+	private Integer id;
 	
 	private String userName;
 	
@@ -13,7 +14,7 @@ public class UserDTO {
 	
 	private String gender;
 	
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	private String address;
 	
@@ -27,12 +28,12 @@ public class UserDTO {
 	
 	private Long MobileNumber;
 	
-	public Integer getUserID() {
-		return userID;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUserID(Integer userID) {
-		this.userID = userID;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
@@ -67,11 +68,11 @@ public class UserDTO {
 		this.gender = gender;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

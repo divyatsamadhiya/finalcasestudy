@@ -2,22 +2,22 @@ package com.example.finalcasestudy.model;
 
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import javax.validation.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
-
 
 @Entity
-@Table(name="users")
+@Table(name="user")
 public class User implements Serializable  {
 	
 	
 	@Id
-	private Integer userID;
+	private Integer id;
 
 	@NotEmpty
 	private String userName;
@@ -30,7 +30,7 @@ public class User implements Serializable  {
 	
 	private String gender;
 	
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	private String address;
 	
@@ -44,12 +44,12 @@ public class User implements Serializable  {
 	
 	private Long MobileNumber;
 	
-	public Integer getUserID() {
-		return this.userID;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setUserID(Integer userID) {
-		this.userID = userID;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getUserName() {
@@ -84,11 +84,11 @@ public class User implements Serializable  {
 		this.gender = gender;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -138,6 +138,37 @@ public class User implements Serializable  {
 
 	public void setMobileNumber(Long mobileNumber) {
 		this.MobileNumber = mobileNumber;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("User [userID=");
+		builder.append(id);
+		builder.append(", userName=");
+		builder.append(userName);
+		builder.append(", emailId=");
+		builder.append(emailId);
+		builder.append(", password=");
+		builder.append(password);
+		builder.append(", gender=");
+		builder.append(gender);
+		builder.append(", dateOfBirth=");
+		builder.append(dateOfBirth);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", state=");
+		builder.append(state);
+		builder.append(", country=");
+		builder.append(country);
+		builder.append(", pincode=");
+		builder.append(pincode);
+		builder.append(", MobileNumber=");
+		builder.append(MobileNumber);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	

@@ -21,6 +21,10 @@ public FlightModel save(FlightModel flight) {
 return flightRepository.save(flight);
 }
 
+public List<FlightModel> findByFlightNumber(Integer number){
+	return flightRepository.findByFlightNumber(number);
+}
+
 
 public List<FlightModel> findAllByFromCityToCitySeats(String fromCity, String toCity, Integer seats) {
 	return flightRepository.findByFromCityAndToCityAndSeatsGreaterThanEqual(fromCity, toCity, seats);
@@ -30,7 +34,9 @@ public void delete(int flightId) {
 flightRepository.deleteById(flightId);
 }
 
-
+public List<FlightModel> findById(int id){
+	return flightRepository.findById(id);
+}
 	
 
 }

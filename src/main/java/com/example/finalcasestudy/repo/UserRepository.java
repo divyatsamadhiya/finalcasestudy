@@ -14,9 +14,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	List<User> findByPasswordIgnoreCase(String password);
 	
-	List<User> findById(int userID);
-	List<User> deleteById(int UserID);
+	List<User> findById(int id);
 	
-//	List<User> loginByEmailPassword(String emailId, String password);
+	List<User> deleteById(int id);
+	
+
 
 }
