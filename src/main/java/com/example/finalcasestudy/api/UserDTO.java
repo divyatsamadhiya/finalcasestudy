@@ -1,5 +1,6 @@
 package com.example.finalcasestudy.api;
 
+import java.util.Date;
 
 public class UserDTO {
 	
@@ -13,7 +14,7 @@ public class UserDTO {
 	
 	private String gender;
 	
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	private String address;
 	
@@ -67,11 +68,11 @@ public class UserDTO {
 		this.gender = gender;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

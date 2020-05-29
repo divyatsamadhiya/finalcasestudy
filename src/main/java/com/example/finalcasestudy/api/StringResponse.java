@@ -9,4 +9,12 @@ public class StringResponse {
     public String getResponse() {
         return response;
     }
+
 }
+
+
+
+
+
+
+

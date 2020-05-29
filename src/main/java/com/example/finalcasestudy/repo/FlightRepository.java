@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.example.finalcasestudy.model.FlightModel;
 import com.example.finalcasestudy.model.User;
 
+
 @Repository
 public interface FlightRepository extends JpaRepository<FlightModel,Integer>{
 	
@@ -21,4 +22,8 @@ public interface FlightRepository extends JpaRepository<FlightModel,Integer>{
 	List<FlightModel> findById(int id);
 	
 	List<FlightModel> findByFlightNumber(Integer flightNumber);
+
 }
+
+
+

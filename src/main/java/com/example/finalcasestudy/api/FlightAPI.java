@@ -60,5 +60,7 @@ return new ResponseEntity<>(new StringResponse("Deleted flightId= "+flightId), H
 public ResponseEntity<List<FlightDTO>> findById(@PathVariable("id") int id){
 	logger.info("Processing findById request");
 	return new ResponseEntity<>(flightFacade.findById(id), HttpStatus.OK);
+
 }
+
 }

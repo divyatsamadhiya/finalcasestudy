@@ -28,67 +28,129 @@ class FinalcasestudyApplicationTests {
 	
 
 	@Mock
-	UserFacade productFacade;
+	UserFacade userFacade;
+	
+	@InjectMocks
+	FlightAPI flightapi;
+
+	@Mock
+	FlightFacade flightFacade;
 
 
 	@Test
 	void contextLoads() {
 	}
 	
-	
 	@Test
 	public void testFindAll()
 	{
-	// given
-
 
 	List<UserDTO> users = new ArrayList<>();
 	users.add(new UserDTO());
-//	users.add(new UserDTO());
-//	users.add(new UserDTO());
-//	users.add(new UserDTO());
+	users.add(new UserDTO());
 	
 
-	when(productFacade.findAll()).thenReturn(users);
-
-
-
-	// when
+	when(userFacade.findAll()).thenReturn(users);
 	List<UserDTO> result = userapi.findAll().getBody();
+	assertThat(result.size()).isEqualTo(2);
 
-	// then
-	assertThat(result.size()).isEqualTo(1);
-
-	// assertThat(result.get(0).getFirstName())
-	// .isEqualTo(employee1.getFirstName());
-	//
-	// assertThat(result.getEmployeeList().get(1).getFirstName())
-	// .isEqualTo(employee2.getFirstName());
 	}
+	@Test
+	public void testFindByFlightNumber()
+	{
 	
-	@InjectMocks
-	FlightAPI flightapi;
-	
-	@Mock
-	FlightFacade flightFacade;   
+	    List<FlightDTO> flights=new ArrayList<>();
+	    flights.add(new FlightDTO());
+	    when(flightFacade.findByFlightNumber(101)).thenReturn(flights);
+	    
+		List<FlightDTO> result = flightapi.findByFlightNumber(101).getBody();
+
+		assertThat(result.size()).isEqualTo(1);
+	}
 	
 	@Test
-	public void testFindAllByFromCityToCitySeats()
+	public void testfindByFromCityAndToCityAndSeatsGreaterThanEqual()
 	{
-		
-		List<FlightDTO> flight = new ArrayList<>();
-		flight.add(new FlightDTO());
-		
-		when(flightFacade.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1)).thenReturn(flight);
-		
-		List<FlightDTO> result = flightapi.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1).getBody();
-		
+	// then
+	    List<FlightDTO> flights=new ArrayList<>();
+	    flights.add(new FlightDTO());
+	    when(flightFacade.findAllByFromCityToCitySeats("Bangalore","Delhi",4)).thenReturn(flights);
+	    
+		// when
+		List<FlightDTO> result = flightapi.findAllByFromCityToCitySeats("Bangalore","Delhi",4).getBody();
+
+
+		// then
 		assertThat(result.size()).isEqualTo(1);
+	}
+	
+	@Test
+	//user
+	public void testfindbyId()
+	{
+		//given
+		List<UserDTO> users = new ArrayList<>();
+		users.add(new UserDTO());
+		when(userFacade.findById(1)).thenReturn(users);
+		//when
+		List<UserDTO> result =userapi.findById(1).getBody();
+		//then
+		assertThat(result.size()).isEqualTo(1);
+	}
+	
+	@Test
+	//user
+	public void testfindbyName()
+	{
+		//given
+		List<UserDTO> users = new ArrayList<>();
+		users.add(new UserDTO());
+		when(userFacade.findByUserName("Divyat Samadhiya")).thenReturn(users);
+		//when
+		List<UserDTO> result =userapi.findByName("Divyat Samadhiya").getBody();
+		//then
+		assertThat(result.size()).isEqualTo(1);
+	}
+	
+	@Test
+//	//flight
+	public void testflightfindbyId()
+	{
+		//given
+		List<FlightDTO> flights = new ArrayList<>();
+		flights.add(new FlightDTO());
+		when(flightFacade.findById(1)).thenReturn(flights);
+		//when
+		List<FlightDTO> result =flightapi.findById(1).getBody();
+		//then
+		assertThat(result.size()).isEqualTo(1);
+	}
+	
+
+//	@InjectMocks
+//	FlightAPI flightapi;
+//	
+//	@Mock
+//	FlightFacade flightFacade;   
+//	
+//	@Test
+//	public void testFindAllByFromCityToCitySeats()
+//	{
+//		
+//		List<FlightDTO> flight = new ArrayList<>();
+//		flight.add(new FlightDTO());
+//		
+//		when(flightFacade.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1)).thenReturn(flight);
+//		
+//		List<FlightDTO> result = flightapi.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1).getBody();
+//		
+//		assertThat(result.size()).isEqualTo(1);
+//		
 		
 		
-		
+
 	}
 
 
 
-	}
+	
