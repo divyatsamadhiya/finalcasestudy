@@ -11,6 +11,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.finalcasestudy.api.FlightAPI;
+import com.example.finalcasestudy.api.FlightDTO;
+import com.example.finalcasestudy.api.FlightFacade;
 import com.example.finalcasestudy.api.UserAPI;
 import com.example.finalcasestudy.api.UserDTO;
 import com.example.finalcasestudy.api.UserFacade;
@@ -21,6 +24,8 @@ class FinalcasestudyApplicationTests {
 	
 	@InjectMocks
 	UserAPI userapi;
+	
+	
 
 	@Mock
 	UserFacade productFacade;
@@ -39,8 +44,9 @@ class FinalcasestudyApplicationTests {
 
 	List<UserDTO> users = new ArrayList<>();
 	users.add(new UserDTO());
-	users.add(new UserDTO());
-	
+//	users.add(new UserDTO());
+//	users.add(new UserDTO());
+//	users.add(new UserDTO());
 	
 
 	when(productFacade.findAll()).thenReturn(users);
@@ -51,7 +57,7 @@ class FinalcasestudyApplicationTests {
 	List<UserDTO> result = userapi.findAll().getBody();
 
 	// then
-	assertThat(result.size()).isEqualTo(2);
+	assertThat(result.size()).isEqualTo(1);
 
 	// assertThat(result.get(0).getFirstName())
 	// .isEqualTo(employee1.getFirstName());
@@ -59,5 +65,30 @@ class FinalcasestudyApplicationTests {
 	// assertThat(result.getEmployeeList().get(1).getFirstName())
 	// .isEqualTo(employee2.getFirstName());
 	}
+	
+	@InjectMocks
+	FlightAPI flightapi;
+	
+	@Mock
+	FlightFacade flightFacade;   
+	
+	@Test
+	public void testFindAllByFromCityToCitySeats()
+	{
+		
+		List<FlightDTO> flight = new ArrayList<>();
+		flight.add(new FlightDTO());
+		
+		when(flightFacade.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1)).thenReturn(flight);
+		
+		List<FlightDTO> result = flightapi.findAllByFromCityToCitySeats("Bengaluru","Sahanghai",1).getBody();
+		
+		assertThat(result.size()).isEqualTo(1);
+		
+		
+		
+	}
+
+
 
 	}
