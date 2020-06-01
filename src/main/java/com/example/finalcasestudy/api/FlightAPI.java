@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
-
 @RestController
 public class FlightAPI {
 	
@@ -40,6 +37,12 @@ flightFacade.save(flightDTO);
 return ResponseEntity.status(HttpStatus.CREATED).body(flightDTO);
 }
 
+@GetMapping("/flights/findByFlightNumber/{number}")
+public ResponseEntity<List<FlightDTO>> findByFlightNumber(@PathVariable("number")Integer number){
+	logger.info("Processing findByFlightNumber request");
+	return new ResponseEntity<>(flightFacade.findByFlightNumber(number), HttpStatus.OK);
+}
+
 
 @GetMapping("/flights/available/{fromCity}/{toCity}/{seats}")
 public ResponseEntity<List<FlightDTO>> findAllByFromCityToCitySeats(@PathVariable("fromCity")String fromCity, @PathVariable("toCity")String toCity, @PathVariable("seats")Integer seats) {
@@ -51,5 +54,11 @@ public ResponseEntity<List<FlightDTO>> findAllByFromCityToCitySeats(@PathVariabl
 public @ResponseBody ResponseEntity<StringResponse> delete(@PathVariable("flightId")int flightId){
 flightFacade.delete(flightId);
 return new ResponseEntity<>(new StringResponse("Deleted flightId= "+flightId), HttpStatus.OK);
+}
+
+@GetMapping("/flights/findById/{id}")
+public ResponseEntity<List<FlightDTO>> findById(@PathVariable("id") int id){
+	logger.info("Processing findById request");
+	return new ResponseEntity<>(flightFacade.findById(id), HttpStatus.OK);
 }
 }

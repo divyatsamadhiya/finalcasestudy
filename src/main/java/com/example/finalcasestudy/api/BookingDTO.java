@@ -1,5 +1,6 @@
 package com.example.finalcasestudy.api;
 
+<<<<<<< HEAD
 public class BookingDTO {
 	
 	private Integer id;
@@ -36,6 +37,22 @@ public class BookingDTO {
 
 	
 
+=======
+import java.util.Date;
+
+public class BookingDTO {
+	private Integer id;
+	
+	private Integer flightId;
+	
+    private Integer userId;
+    
+    private Date bookingDate;
+	
+	private Date travelDate;
+	
+	
+>>>>>>> 47645842d94968c9bc7ef3d6615d4c69bef24cc5
 	public Integer getId() {
 		return id;
 	}
@@ -44,6 +61,7 @@ public class BookingDTO {
 		this.id = id;
 	}
 
+<<<<<<< HEAD
 	public String getFromCity() {
 		return fromCity;
 	}
@@ -223,3 +241,41 @@ public class BookingDTO {
 	}
 	
 }
+=======
+	public Integer getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(Integer flightId) {
+		this.flightId = flightId;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Date getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(Date bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
+	public Date getTravelDate() {
+		return travelDate;
+	}
+
+	public void setTravelDate(Date travelDate) {
+		this.travelDate = travelDate;
+	}
+
+	
+	
+	
+}
+>>>>>>> 47645842d94968c9bc7ef3d6615d4c69bef24cc5

@@ -5,38 +5,40 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.7.RELEASE</version>
+		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>finalcasestudy</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>finalcasestudy</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<surefire.version>2.17</surefire.version>
+		<jacoco.version>0.7.9</jacoco.version>
 	</properties>
-<distributionManagement>
-<repository>
-<id>release</id>
-<name>releases</name>
-<url>http://localhost:8081/artifactory/libs-release-local</url>
-</repository>
-<snapshotRepository>
-<id>snapshot</id>
-<name>snapshots</name>
-<url>http://localhost:8081/artifactory/libs-snapshot-local</url>
-</snapshotRepository>
+	
+	<distributionManagement>
+  <repository>
+    <id>release</id>
+    <name>releases</name>
+    <url>http://localhost:8081/artifactory/libs-release-local</url>
+  </repository>
+  <snapshotRepository>
+    <id>snapshot</id>
+    <name>snapshots</name>
+    <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+  </snapshotRepository>
 </distributionManagement>
-
-<scm>
-<connection>scm:git:git@github.com:gangarevankar/finalcasestudy.git</connection>
-<developerConnection>scm:git:git@github.com:gangarevankar/finalcasestudy.git</developerConnection>
-<url>git@github.com:gangarevankar/finalcasestudy.git</url>
-<tag>HEAD</tag>
-</scm>
+	<scm>
+  		<connection>scm:git:git@github.com:divyatsamadhiya/finalcasestudy.git</connection>
+  		<developerConnection>scm:git:git@github.com:divyatsamadhiya/finalcasestudy.git</developerConnection>
+  		<url>https://github.com/divyatsamadhiya/finalcasestudy.git</url>
+  		<tag>HEAD</tag>
+	</scm>
 
 	<dependencies>
 		<dependency>
@@ -47,6 +49,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,21 +65,41 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-<dependency>
-<groupId>org.modelmapper</groupId>
-<artifactId>modelmapper</artifactId>
-<version>2.3.5</version>
-</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
+=======
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
+		</dependency>
+		<dependency>
+>>>>>>> 47645842d94968c9bc7ef3d6615d4c69bef24cc5
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -80,6 +110,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+    		<groupId>org.mockito</groupId>
+    		<artifactId>mockito-junit-jupiter</artifactId>
+    		<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -87,7 +123,43 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+				<finalName>finalcasestudy-docker-jenkins</finalName>
+				</configuration>
 			</plugin>
+			<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-release-plugin</artifactId>
+  				<version>2.5.1</version>
+  				<configuration>
+    				<tagNameFormat>v@{project.version}</tagNameFormat>
+    				<autoVersionSubmodules>true</autoVersionSubmodules>
+  				</configuration>
+			</plugin>
+<<<<<<< HEAD
+=======
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>${surefire.version}</version>
+</plugin>
+<plugin>
+<groupId>org.jacoco</groupId>
+<artifactId>jacoco-maven-plugin</artifactId>
+<version>${jacoco.version}</version>
+<executions>
+<execution>
+<id>default-prepare-agent</id>
+<goals><goal>prepare-agent</goal></goals>
+</execution>
+<execution>
+<id>default-report</id>
+<phase>prepare-package</phase>
+<goals><goal>report</goal></goals>
+</execution>
+</executions>
+</plugin>
+>>>>>>> 47645842d94968c9bc7ef3d6615d4c69bef24cc5
 		</plugins>
 	</build>
 
